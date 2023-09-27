@@ -26,7 +26,16 @@ const EventModal = ({ theme }) => {
   );
 
   const createEvent = () => {
-    
+
+    setOpenModal(false)
+    setTitle("")
+    setStartDate("")
+    setEndDate("")
+    setStartTime("")
+    setEndTime("")
+    setPeople("")
+    setLocation("")
+    setDescription("")
   };
 
   return (

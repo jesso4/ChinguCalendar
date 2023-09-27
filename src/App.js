@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import { useSelector } from "react-redux";
 import Calendar from "./calendar/calendar";
 import Event from "./event/event";
@@ -6,7 +6,17 @@ import { Box } from "@mui/material";
 
 const App = ({ theme }) => {
   // const username = useSelector((state) => state.auth.me.username);
-  console.log(`I'm gonna figure it out:`);
+
+  const todaysDate = new Date();
+  const [date, setDate] = useState(todaysDate);
+  const [day, setDay] = useState(todaysDate.getDate());
+  const [month, setMonth] = useState(todaysDate.getMonth() + 1);
+  const [year, setYear] = useState(todaysDate.getFullYear());
+
+  // let day = todaysDate.getDate();
+  // let month = todaysDate.getMonth() + 1;
+  // let year = todaysDate.getFullYear();
+  console.log(`day ${day} month ${month} year ${year}`);
 
   return (
     <>
@@ -19,8 +29,8 @@ const App = ({ theme }) => {
           alignItems: "stretch",
         }}
       >
-        <Calendar></Calendar>
-        <Event></Event>
+        <Calendar day={day} month={month} year={year}></Calendar>
+        <Event date={date} day={day} month={month}></Event>
       </Box>
     </>
   );

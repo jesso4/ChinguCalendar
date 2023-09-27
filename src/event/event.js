@@ -8,8 +8,29 @@ import EventModal from "../modal/modal";
 // import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import AddIcon from "@mui/icons-material/Add";
 
-const Event = ({ theme }) => {
+const Event = (props) => {
   // const username = useSelector((state) => state.auth.me.username);
+  let date = props.date
+  let day = props.day
+  let month = props.month
+
+  function getMonthLongName(monthNo) {
+    const date = new Date();
+    date.setMonth(monthNo - 1);
+    return date.toLocaleString('en-US', { month: 'long' });
+  }
+
+ 
+  function getDayLongName(date) {
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const day = date.getDay();
+ 
+
+    return days[day]
+
+    }
+
+
 
   return (
     <>
@@ -34,8 +55,8 @@ const Event = ({ theme }) => {
             paddingBottom: "5%",
           }}
         >
-          <Typography variant="h6">Day of Week</Typography>
-          <Typography variant="h5">Date</Typography>
+          <Typography variant="h6">{getDayLongName(date)}</Typography>
+          <Typography variant="h5">{getMonthLongName(month)} {day}</Typography>
         </Box>
         <Box
           sx={{

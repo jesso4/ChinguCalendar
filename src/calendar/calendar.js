@@ -9,9 +9,17 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Calendar = ({ theme }) => {
+const Calendar = (props) => {
   // const username = useSelector((state) => state.auth.me.username);
+  let year = props.year
+  let month = props.month
 
+  function getMonthShortName(monthNo) {
+    const date = new Date();
+    date.setMonth(monthNo - 1);
+    return date.toLocaleString('en-US', { month: 'short' });
+  }
+console.log(`getMonth 4 ${getMonthShortName(4)}`)
   const CustomCalendarHeader = (props) => {
     return (
       <Box
@@ -30,7 +38,7 @@ const Calendar = ({ theme }) => {
           }}
         >
           <Typography variant="h4">eCalendar</Typography>
-          <Typography variant="h5">Year</Typography>
+          <Typography variant="h5">{year}</Typography>
         </Box>
         <Box
           sx={{
@@ -41,11 +49,11 @@ const Calendar = ({ theme }) => {
           }}
         >
           <Typography variant="subtitle1" sx={{ color: "gray" }}>
-            MON
+          {getMonthShortName((month-1))}
           </Typography>
-          <Typography variant="h6">MON</Typography>
+          <Typography variant="h6">{getMonthShortName(month)}</Typography>
           <Typography variant="subtitle1" sx={{ color: "gray" }}>
-            MON
+          {getMonthShortName((month+1))}
           </Typography>
         </Box>
       </Box>
