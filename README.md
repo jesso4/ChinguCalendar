@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+# Chingu Calendar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a basic calendar toolt o serve as a solo project for evaluation by Chingu.
+
+## Features
+Calendar month view - allows you to scroll from month to month and select date.
+
+Daily agenda view - displays events scheduled for selected date. Can add event for date selected. 
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm seed`
+
+After creating a PostgreSql database called 'chingu_calendar', you can seed file with sample events for end of September 2023.
 
 ### `npm start`
 
@@ -69,9 +78,37 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+## Dependencies
 
-Title — What is your app/project called?
-Overview — Why did you start this project?
-Features — What are some key things your project can do?
-Running the project — How could someone else get your code working for them?
-Dependencies — What are the main outside resources your project needs to run?
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@mui/x-date-pickers": "^6.15.0",
+    "@reduxjs/toolkit": "^1.9.6",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.5.1",
+    "babel-core": "^6.26.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.10",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
+    "react-scripts": "5.0.1",
+    "sequelize": "^6.33.0",
+    "volleyball": "^1.5.1",
+    "web-vitals": "^2.1.4"
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-stage-2": "^7.8.3",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.88.2",
+    "webpack-dev-server": "^4.15.1"
+
+
