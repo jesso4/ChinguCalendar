@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import { useSelector } from "react-redux";
 // import UserBoards from "../features/boards/AllUserBoards";
 import { Box, Typography } from "@mui/material";
@@ -11,15 +11,28 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Calendar = (props) => {
   // const username = useSelector((state) => state.auth.me.username);
-  let year = props.year
-  let month = props.month
+  // let year = props.year
+  // let month = props.month
+
+  const [month, setMonth] = useState(props.month)
+  const [year, setYear] = useState(props.year)
 
   function getMonthShortName(monthNo) {
     const date = new Date();
     date.setMonth(monthNo - 1);
     return date.toLocaleString('en-US', { month: 'short' });
   }
-console.log(`getMonth 4 ${getMonthShortName(4)}`)
+
+  function increaseMonth(mo) {
+    month == 12 ? setYear(year+1) : console.log("same year")
+    setMonth(month+1)
+  }
+
+  function decreaseMonth(mo) {
+    month == 1 ? setYear(year-1) : console.log("same year")
+    setMonth(month-1)
+  }
+
   const CustomCalendarHeader = (props) => {
     return (
       <Box
@@ -74,7 +87,7 @@ console.log(`getMonth 4 ${getMonthShortName(4)}`)
           marginRight: "1%",
         }}
       >
-        <ArrowBackIosNewIcon></ArrowBackIosNewIcon>
+        <ArrowBackIosNewIcon onClick={decreaseMonth}></ArrowBackIosNewIcon>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
             views={["year", "month", "day"]}
@@ -90,7 +103,7 @@ console.log(`getMonth 4 ${getMonthShortName(4)}`)
               },
             }}
           />
-          <ArrowForwardIosIcon></ArrowForwardIosIcon>
+          <ArrowForwardIosIcon onClick={increaseMonth}></ArrowForwardIosIcon>
         </LocalizationProvider>
       </Box>
     </>

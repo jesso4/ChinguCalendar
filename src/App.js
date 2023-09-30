@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 // import { useSelector } from "react-redux";
 import Calendar from "./calendar/calendar";
-import Event from "./event/event";
+import Agenda from "./Agenda/agenda";
 import { Box } from "@mui/material";
 
 const App = ({ theme }) => {
@@ -30,7 +30,7 @@ const App = ({ theme }) => {
         }}
       >
         <Calendar day={day} month={month} year={year}></Calendar>
-        <Event date={date} day={day} month={month}></Event>
+        <Agenda date={date} day={day} month={month}></Agenda>
       </Box>
     </>
   );
